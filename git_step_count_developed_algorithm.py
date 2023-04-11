@@ -167,26 +167,8 @@ def tmp_steps(similarity_measures,true_steps,group,location,activity_label):
     steps = []
 
     for i,v in enumerate(similarity_measures):
-            
-        max_value = np.max(v) 
-        min_value = np.min(v)
-        mid_range_value = (max_value+min_value)/2
         
-        # constants used to calculate distance threshold for each activity and each group
-        if group == "h":
-            c = 0.9
-            
-        elif group == "s":
-            if (activity_label == 3):
-                c = 0.6
-            elif (activity_label == 5): 
-                c = 0.9
-            elif (activity_label == 6) or (activity_label == 7):
-                c = 0.4
-            elif (activity_label == 8) or (activity_label == 9):
-                c = 0
-                
-        threshold = mid_range_value+(mid_range_value*c)
+        threshold = np.percentile(v, 85)
 
         high_threshold = threshold
         steps.append([value for value in v if value <= high_threshold])         
