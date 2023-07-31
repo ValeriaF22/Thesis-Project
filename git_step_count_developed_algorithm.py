@@ -166,12 +166,16 @@ def tmp_steps(similarity_measures,true_steps,group,location,activity_label):
 
     steps = []
 
+    if group == "h":
+        n=3        
+    elif group == "s":
+        n=1
+            
+    steps = []
     for i,v in enumerate(similarity_measures):
         
-        threshold = np.percentile(v, 85)
-
-        high_threshold = threshold
-        steps.append([value for value in v if value <= high_threshold])         
+        high_threshold = np.mean(v) + n * np.std(v)
+        steps.append([value for value in v if value <= high_threshold])          
 
     num_steps = [np.size(step) for step in steps]
     
