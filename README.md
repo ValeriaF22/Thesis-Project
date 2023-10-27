@@ -30,7 +30,7 @@ To get started with these algorithms, please refer to the documentation and exam
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This repository is licensed under the MIT License. See the [LICENSE](https://github.com/ValeriaF22/Thesis-Project/blob/main/LICENSE) file for details.
 
 ---
 
